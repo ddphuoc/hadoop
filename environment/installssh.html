@@ -1,0 +1,19 @@
+This guideline shows step by step to install OpenSSH, and add default SSH account use for Hadoop.
+
+1. Install the OpenSSH server and client using the following command: apt install openssh-server openssh-client -y
+
+2. Utilize the adduser command to create a new Hadoop user: adduser hdoop
+
+3. Switch to the newly created user and enter the corresponding password: su - hdoop
+
+4. Generate an SSH key pair and define the location is is to be stored in (passwordless SSH for Hadoop user): ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+
+5. Use the cat command to store the public key as authorized_keys in the ssh directory: cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+
+6. Set the permissions for your user with the chmod command: chmod 0600 ~/.ssh/authorized_keys
+
+7. Enable OpenSSH server: service ssh enable
+
+8. Start service ssh: service ssh start
+
+9. Setup autostart ssh service: update-rc.d ssh defaults
