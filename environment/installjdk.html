@@ -1,0 +1,30 @@
+Introduction
+Guide on how to install JDK on Ubuntu.
+
+The Hadoop framework is written in Java, and its services require a compatible Java Runtime Environment (JRE) and Java Development Kit (JDK). This guideline is install Amazon java corretto 8, and another LTS corretto 11
+
+1. Access to a terminal (CLI) window/command line of Ubuntu container
+
+2. Login root privileges: su -
+
+3. Update current packages: apt update
+
+4. Install add-apt-repository command: apt-get install software-properties-common
+
+5. Install wget command: apt-get install wget
+
+6. Download amazon public key: wget -O- https://apt.corretto.aws/corretto.key | apt-key add -
+
+7. Add repository of amazon jdk: add-apt-repository 'deb https://apt.corretto.aws stable main'
+
+8. Install jdk corretto 8: apt-get update; apt-get install -y java-1.8.0-amazon-corretto-jdk
+
+9. Install jdk corretto 11: apt-get update; apt-get install -y java-11-amazon-corretto-jdk
+
+10. Setup default Java: update-alternatives --config java
+Current Hadoop 3.3.x support JDK 8, so that input the number of JDK 8 and enter. Check java version again: java -version
+
+11. Setup JAVA_HOME
+    11.1. Edit environment: nano /etc/environment
+    11.2. Add one more item (if any): JAVA_HOME="/your/default/path/step10"
+
