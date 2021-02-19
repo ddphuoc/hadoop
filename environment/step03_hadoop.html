@@ -1,7 +1,7 @@
 This guideline is step by step to install Hadoop version 3.3.0
 Source: https://phoenixnap.com/kb/install-hadoop-ubuntu
 
-1. Login Ubuntu with user hadoop: su - hdoop
+1. Login Ubuntu with user hdoop (we can use ssh): su - hdoop or ssh hdoop@vmwareos.ip
 
 2. Download Hadoop installation: wget https://mirrors.ocf.berkeley.edu/apache/hadoop/common/hadoop-3.3.0/hadoop-3.3.0.tar.gz
 
@@ -120,3 +120,21 @@ It is important to format the NameNode before starting Hadoop services for the f
 Navigate to the hadoop-3.3.0/sbin directory and execute the following commands to start the NameNode and DataNode
 
 17. Once the namenode, datanodes, and secondary namenode are up and running, start the YARN resource and nodemanagers by typing: start-yarn.sh
+
+18. Type this simple command to check if all the daemons are active and running as Java processes: jps
+eg.
+    11184 DataNode
+    11584 ResourceManager
+    12259 Jps
+    11399 SecondaryNameNode
+    11000 NameNode
+    11759 NodeManager
+
+===================
+CHECK HDOOP UI
+
+1. Access Hadoop UI from Browser: http://vmwareos.ip:9870
+
+2. The default port 9864 is used to access individual DataNodes directly from your browser: http://vmwareos.ip:9864
+
+3. The YARN Resource Manager is accessible on port 8088: http://vmwareos.ip:8088
